@@ -8,5 +8,20 @@
 
 int _printf(const char *format, ...)
 {
+	unsigned int i = 0;
+	va_list list;
+
+	va_start(list, format);
+
+	while(format[i])
+	{
+		if (format[i] != '%')
+			_putchar(format[i]);
+		else
+		{
+
+		}
+		i++;
+	}
 
 }
