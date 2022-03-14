@@ -13,4 +13,6 @@ typedef struct Ftype
 	int(*f)(va_list);
 }f_type;
 
+int _strlen(char *s);
+
 #endif
