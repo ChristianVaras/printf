@@ -19,12 +19,16 @@ typedef struct Ftype
 
 typedef struct Ftype match_id;
 
-/* main functions */
-int _printf(const char *format, ...);
-
-/* aux functions */
+/* helper and initial functions */
 int _putchar(char c);
+int _printf(const char *format, ...);
+int parse(const char *format, va_list arguments);
 
-int _strlen(char *s);
+/* format conversion functions */
+int print_char(va_list c);
+int print_string(va_list c);
+
+/* escape conversion functions */
+int new_line(va_list arg);
 
 #endif

@@ -1,6 +1,17 @@
 #include "holberton.h"
+
+/**
+ * parser - function that will parse the given format
+ * and count how many chars are printed
+ * it will also call the function that match the format specifier
+ * @format: *pointer to the given format
+ * Return: the number of printed chars count1
+**/
 int parser(const char *format, va_list arguments)
 {
+	/* TODO: add condition for escape character \ */
+	/* TODO: add condition for \n */
+
 	char specifier;
 	int i, sum;
 	int printed_chars = 0;
@@ -26,7 +37,7 @@ int parser(const char *format, va_list arguments)
 			printed_chars++;
 		}
 	}
-return (printed_chars);
+	return (printed_chars);
 }
 /**
  * _printf - Simulates the printf function
@@ -38,6 +49,8 @@ int _printf(const char *format, ...)
 	int final_count = 0;
 	va_list arguments;
 
+	/* if format not exit --> return -1*/
+	/* else call parser */
 	if(!format || arguments == NULL)
 	{
 		return (-1);
@@ -49,8 +62,13 @@ int _printf(const char *format, ...)
 	else
 	{
 		va_start(arguments, format);
-		final_count = fx( );
+		fun_ptr = *parser(format);
+		final_count = parser(format, arguments);
+		/* if fun_ptr is NULL print the format */
+		/* if fun_ptr is not NULL execute it with fun_ptr(argument) */
 	}
+
 	va_end(arguments);
+
 	return(final_count)
 }
