@@ -135,4 +135,4 @@ Function name | Description | Format Specifier
 
 ## Authors
 - [Mauricio Carrasco](https://github.com/mauricodev) ~ [Linkedin](https://www.linkedin.com/in/mauriciocm69/) ~ [@mauricodev](https://twitter.com/mauricodev)
-- [Christian Varas](https://github.com/ChristianVaras) ~ [LinkedIn](https://www.linkedin.com/in/arthur-damm-96527042/) ~ [@arthurdamm](https://twitter.com/ChristianVaras8)
+- [Christian Varas](https://github.com/ChristianVaras) ~ [@ChristianVaras8](https://twitter.com/ChristianVaras8)
