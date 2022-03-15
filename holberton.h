@@ -25,4 +25,6 @@ int _printf(const char *format, ...);
 /* aux functions */
 int _putchar(char c);
 
+int _strlen(char *s);
+
 #endif
