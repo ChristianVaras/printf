@@ -1,8 +1,9 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
  * print_int - print an integer at printf
  * @arg: the main number passed to the function
+ *
  * Return: Size of the integer
  */
 int print_int(va_list arg)
@@ -19,6 +20,7 @@ int print_int(va_list arg)
 /**
  * print_unsigned_int - print an unsigned integer at printf
  * @arg: the main number passed to the function
+ *
  * Return: Size of the unsigned integer
  */
 int print_unsigned_int(va_list arg)
@@ -36,6 +38,7 @@ int print_unsigned_int(va_list arg)
 /**
  * print_octal_ui - print an octal unsigned integer at printf
  * @arg: the main number passed to the function
+ *
  * Return: Size of the octal unsigned integer
  */
 int print_octal_ui(va_list arg)
