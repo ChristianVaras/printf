@@ -2,12 +2,18 @@
 
 ## Overview
 This repository holds all the code necessary for our custom _printf function to run. Our mini-version currently handles conversion specifiers: c, s, %, d, i and does not yet support field width, precision, flag characters, or length modifiers. In essence, you can print any character, string, integer, or decimal number.
+Prototype: int _printf(const char *, ...);
+
 
 # Table of Contents
 - [General Requirements](#general-requirements)
 - [Authorized functions and macros](#authorized-functions-and-macros)
 - [Compilation](#compilation)
 - [Installation](#installation)
+- [Format Specifiers](#format-specifiers)
+- [Tasks](#tasks)
+- [Some Examples](#some-examples)
+- [Authors](#authors)
 
 ## General Requirements
 Here are the general requirements:
@@ -46,7 +52,7 @@ In order to use this custom _printf function you need only ```<unistd.h>``` and 
 First, clone this repository to your local machine:
 
 ```
-$ git clone https://github.com/narnat/printf.git
+$ git clone https://github.com/ChristianVaras/printf.git
 ```
 
 After cloning the repo, go to the printf folder with:
@@ -75,3 +81,58 @@ Now you will have ```printf.a``` static library, and all you have to do is compi
 ```
 gcc your_C_source_code -L. -lprintf
 ```
+
+## Format Specifiers
+Function name | Description | Format Specifier
+--- | --- | ---
+`print_char` | Prints a character | `%c`
+`print_string` | Prints a string | `%s`
+`print_percentage` | Prints a '%' | `%%`
+`print_integer` | Prints an integer | `%d` or `%i`
+
+
+## Tasks
+
+### Mandatory Tasks
+- [x] Write function that produces output with conversion specifiers ```c```, ```s```, and ```%```.
+- [ ] Handle conversion specifiers ```d```, ```i```.
+- [x] Create a man page for your function.
+
+### Advanced Tasks
+- [ ] Handle conversion specifier ```b```.
+- [ ] Handle conversion specifiers ```u```, ```o```, ```x```, ```X```.
+- [ ] Use a local buffer of 1024 chars in order to call write as little as possible.
+- [ ] Handle conversion specifier ```S```.
+- [ ] Handle conversion specifier ```p```.
+- [ ] Handle flag characters ```+```, space, and ```#``` for non-custom conversion specifiers.
+- [ ] Handle length modifiers ```l``` and ```h``` for non-custom conversion specifiers.
+- [ ] Handle the field width for non-custom conversion specifiers.
+- [ ] Handle the precision for non-custom conversion specifiers.
+- [ ] Handle the ```0``` flag character for non-custom conversion specifiers.
+- [ ] Handle the custom conversion specifier ```r``` that prints the reversed string.
+- [ ] Handle the custom conversion specifier ```R``` that prints the rot13'ed string.
+- [ ] All above options should work well together.
+
+## Some Examples
+
+
+**Character**
+* Input: ```_printf("The last letter of the alphabet is %c\n", 'Z');```
+* Output: ```The last letter of the alphabet is Z```
+
+**String**
+* Input: ```_printf("%s\n", "This is a simple string.");```
+* Output: ```This is a simple string.```
+
+**Integer or Decimal**
+* Input: ```_printf("I've %i years old\n", 16);```
+* Output: ```I've 16 years old```
+
+**Percentage**
+* Input: ```_printf("I got 100%% of the profit.\n");```
+* Output: ```I got 100%% of the profit.```
+
+
+## Authors
+- [Mauricio Carrasco](https://github.com/mauricodev) ~ [Linkedin](https://www.linkedin.com/in/mauriciocm69/) ~ [@mauricodev](https://twitter.com/mauricodev)
+- [Christian Varas](https://github.com/ChristianVaras) ~ [@ChristianVaras8](https://twitter.com/ChristianVaras8)
