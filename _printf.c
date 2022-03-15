@@ -1,4 +1,35 @@
 #include "holberton.h"
+/**
+ * select_functions - function that matches the format
+ * @c: conversion specifiers
+ * @arguments: pointer to arguments
+ * Return: the number of printed chars
+**/
+int select_functions(char c, va_list arguments)
+{
+	match_id f_list[] = {
+		{"c", print_char},
+		{"s", print_string},
+		{"d", print_int},
+		{"i", print_int},
+		{NULL, NULL}
+	};
+	int i = 0;
+	int printed;
+
+	while (f_list[i].c != NULL)
+	{
+		if (f_list[i].c[0] == c)
+		{
+			return (printed);
+		}
+		else
+		{
+
+		}
+	}
+	return (-1);
+}
 
 /**
  * parser - function that will parse the given format
@@ -9,9 +40,6 @@
 **/
 int parser(const char *format, va_list arguments)
 {
-	/* TODO: add condition for escape character \ */
-	/* TODO: add condition for \n */
-
 	char specifier;
 	int i, sum;
 	int printed_chars = 0;
@@ -62,10 +90,7 @@ int _printf(const char *format, ...)
 	else
 	{
 		va_start(arguments, format);
-		fun_ptr = *parser(format);
 		final_count = parser(format, arguments);
-		/* if fun_ptr is NULL print the format */
-		/* if fun_ptr is not NULL execute it with fun_ptr(argument) */
 	}
 
 	va_end(arguments);
