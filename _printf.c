@@ -8,20 +8,22 @@
 
 int _printf(const char *format, ...)
 {
-	unsigned int i = 0;
-	va_list list;
+	unsigned int final_count = 0;
+	va_list arguments;
 
-	va_start(list, format);
-
-	while(format[i])
+	if(!format || arguments == NULL)
 	{
-		if (format[i] != '%')
-			_putchar(format[i]);
-		else
-		{
-
-		}
-		i++;
+		return (-1);
 	}
-
+	if (format[0] == '%' && !format[1])
+	{
+		return (-1);
+	}
+	else
+	{
+		va_start(arguments, format);
+		final_count = fx( );
+	}
+	va_end(arguments);
+	return(final_count)
 }
