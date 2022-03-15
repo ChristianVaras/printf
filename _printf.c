@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 /**
  * select_functions - function that matches the format
  * @c: conversion specifiers
@@ -12,6 +12,8 @@ int select_functions(char c, va_list arguments)
 		{"s", print_string},
 		{"d", print_int},
 		{"i", print_int},
+		{"%", print_percent},
+
 		{NULL, NULL}
 	};
 	int i = 0;
