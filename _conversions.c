@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * print_hex - print a hexadecimal number at printf in lowercase
  * @arg:  the main number passed to the function
@@ -44,7 +43,6 @@ int print_hex(va_list arg)
 
 	return (count);
 }
-
 /**
  * print_HEX - print a hexadecimal number at printf in uppercase
  * @arg: the main number passed to the function
@@ -91,8 +89,8 @@ int print_HEX(va_list arg)
 }
 #include "main.h"
 /**
- * convert_decimal_to_octal - desc
- * @num: ...
+ * convert_decimal_to_octal - convert number decimal to octal
+ * @num: number to convert
  *
  * Return: octal number converted
  */
@@ -101,12 +99,12 @@ unsigned long convert_decimal_to_octal(unsigned long num)
 	unsigned long octal = 0;
 	unsigned long i = 1;
 
-        while (num != 0)
-        {
-                octal += (num % 8) * i;
-                num = num / 8;
-                i *= 10;
-        }
+	while (num != 0)
+	{
+		octal += (num % 8) * i;
+		num = num / 8;
+		i *= 10;
+	}
 	while (num != 0)
 	{
 		octal += (num % 8) * i;
@@ -116,6 +114,11 @@ unsigned long convert_decimal_to_octal(unsigned long num)
 
 	return (octal);
 }
+/**
+ * print_octal - print number octal
+ * @arg: decimal number to be converted
+ * Return: octal number converted
+ */
 
 int print_octal(va_list arg)
 {
@@ -131,10 +134,9 @@ int print_octal(va_list arg)
 	return (i);
 }
 #include "main.h"
-
 /**
 * print_bin - Converts unsigned int argument to binary
-* @lista: The decimal number to be converted
+* @arg: The decimal number to be converted
 * Return: Binary number
 */
 int print_bin(va_list arg)
