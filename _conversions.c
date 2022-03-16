@@ -1,129 +1,150 @@
 #include "main.h"
-
 /**
- * print_octal - Converts a decimal num passed to the argument to an octal
- * num
- * @arg: The num to be converted
- * Return: c of digit in octal num
- */
-int print_octal(va_list arg)
-{
-	unsigned int num, c = 0, index = 0;
-	int arr[100];
-
-	num = va_arg(arg, int);
-	if (num < 9)
-	{
-		_putchar(num + '0');
-		c = 1;
-	}
-	else if (num >= 9)
-	{
-		while (num > 0)
-		{
-			arr[index] = num % 8;
-			num /= 8;
-			index++;
-		}
-	}
-	while (index--)
-	{
-		_putchar(arr[index] + '0');
-		c++;
-	}
-	return (c);
-}
-
-/**
- * print_hexadecimal - Converts decimal to uppercase hexadecimal
- * @n: The number to be converted
+ * print_hex - print a hexadecimal number at printf in lowercase
+ * @arg:  the main number passed to the function
  *
- * Return: The number of digits printed
- */
-int print_hexadecimal(unsigned int n)
-{
-	int counter = 0;
-	char hex_digits[] = "0123456789abcdef";
-
-	if (n >= 16)
-		counter += print_hexadecimal(n / 16);
-	counter += _putchar(hex_digits[n % 16]);
-	return (counter);
-}
-
-/**
- * print_HEXADECIMAL - Converts decimal to uppercase hexadecimal
- * @n: The number to be converted
- *
- * Return: The number of digits printed
- */
-int print_HEXADECIMAL(unsigned int n)
-{
-	int counter = 0;
-	char hex_digits[] = "0123456789ABCDEF";
-
-	if (n >= 16)
-	{
-		counter += print_HEXADECIMAL(n / 16);
-	}
-	counter += write(1, &hex_digits[n % 16], 1);
-	return (counter);
-}
-
-/**
- * print_hex - Converts decimal to uppercase hexadecimal
- * @arg: The number of list to be converted
- *
- * Return: The number of digits printed
+ * Return: Size of the hexadecimal number
  */
 int print_hex(va_list arg)
 {
-	unsigned int n = va_arg(arg, int);
+	unsigned int x, remainder = 0;
+	int i, j, count = 0;
+	char hex[8];
 
-	return (print_hexadecimal(n));
+	x = va_arg(arg, unsigned int);
+
+        if (x == 0)
+        {
+                count += _putchar('0');
+                return (count);
+        }
+	if (x == 0)
+	{
+		count += _putchar('0');
+		return (count);
+	}
+
+	i = 0;
+	while (x != 0)
+	{
+		remainder = x % 16;
+		if (remainder < 10)
+		{
+			hex[i] = remainder + 48;
+			i++;
+		}
+		else
+		{
+			hex[i] = (remainder + 55) + 32;
+			i++;
+		}
+		x = x / 16;
+	}
+	for (j = i - 1; j >= 0; j--)
+		count += _putchar(hex[j]);
+	return (count);
 }
-
 /**
- * print_HEX - Converts decimal to uppercase hexadecimal
- * @arg: The number of list to be converted
+ * print_HEX - print a hexadecimal number at printf in uppercase
+ * @arg: the main number passed to the function
  *
- * Return: The number of digits printed
+ * Return: Size of the hexadecimal number
  */
 int print_HEX(va_list arg)
 {
-	unsigned int n = va_arg(arg, int);
+	unsigned int x, remainder = 0;
+	int i, j, count = 0;
+	char hex[8];
 
-	return (print_HEXADECIMAL(n));
+	x = va_arg(arg, unsigned int);
+
+        if (x == 0)
+        {
+                count += _putchar('0');
+                return (count);
+        }
+	if (x == 0)
+	{
+		count += _putchar('0');
+		return (count);
+	}
+
+	i = 0;
+	while (x != 0)
+	{
+		remainder = x % 16;
+		if (remainder < 10)
+		{
+			hex[i] = remainder + 48;
+			i++;
+		}
+		else
+		{
+			hex[i] = remainder + 55;
+			i++;
+		}
+		x = x / 16;
+	}
+	for (j = i - 1; j >= 0; j--)
+		count += _putchar(hex[j]);
+	return (count);
 }
+
 /**
-* print_bin - Converts unsigned int argument to binary
-* @arg: The decimal number to be converted
-* Return: Binary number
+* print_octal - convert to ocatle
+* @arg: argument
+* Return: number of elements printed
+*/
+int print_octal(va_list arg)
+{
+	char *buffer;
+	int len, i;
+	int a;
+
+	a = va_arg(arg, int);
+	len = alloc_len(a, 8);
+	buffer = malloc(sizeof(char) * len + 1);
+	/* buffer holds the number of digits of the int */
+	buffer = itoa(a, buffer, 8);
+	buffer[len] = '\0';
+	buffer = rev_string(buffer);
+	for (i = 0; buffer[i] != '\0'; i++)
+	{
+		_putchar(*(buffer + i));
+	}
+	free(buffer);
+	return (i);
+}
+
+/**
+* print_bin - convert to binary
+* @arg: argument
+* Return: number of elements printed
 */
 int print_bin(va_list arg)
 {
-	unsigned int n, a = 0, i = 0;
-	int arr[100];
+	char *buffer;
+	unsigned int len, i, a;
 
-	n = va_arg(arg, int);
-	if (n < 2)
+	a = va_arg(arg, unsigned int);
+	if (a == 0)
 	{
-		_putchar(n + '0');
-		a = 1;
+		return (_putchar('0'));
 	}
-	else if (n >= 2)
+	len = alloc_len(a, 2);
+	buffer = malloc(sizeof(char) * len + 1);
+	if (buffer == NULL)
 	{
-		while (n > 0)
-		{
-			arr[i] = n % 2;
-			n /= 2;
-			i++;
-		}
+		return (-1);
 	}
-	while (i--)
+	/* buffer holds the number of digits of the int */
+	buffer = itoa(a, buffer, 2);
+	buffer[len] = '\0';
+	buffer = rev_string(buffer);
+	for (i = 0; buffer[i] != '\0'; i++)
 	{
-		_putchar(arr[i] + '0');
-		a++;
+		_putchar(*(buffer + i));
 	}
-	return (a);
+	free(buffer);
+	return (i);
 }

@@ -47,8 +47,7 @@ char *_memcpy(char *dest, char *src, unsigned int n);
 
 /* number conversions functions*/
 unsigned long convert_decimal_to_octal(unsigned long num);
-int print_HEXADECIMAL(unsigned int n);
-int print_hexadecimal(unsigned int n);
+
 /* escape conversion functions */
 int new_line(va_list arg);
 int print_percent(va_list arg);
