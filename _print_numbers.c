@@ -31,7 +31,7 @@ int print_number(int n)
 			digit = positive / tens;
 			size += _putchar(digit + '0');
 			positive = (positive - (tens * digit));
-			tens = ten / 10;
+			tens = tens / 10;
 		}
 	}
 
@@ -64,7 +64,7 @@ int print_number_ui(unsigned int n)
 			digit = positive / tens;
 			size += _putchar(digit + '0');
 			positive = (positive - (tens * digit));
-			tens = ten / 10;
+			tens = tens / 10;
 		}
 	}
 
@@ -97,7 +97,7 @@ int print_number_size_t(size_t n)
 			digit = positive / tens;
 			size += _putchar(digit + '0');
 			positive = (positive - (tens * digit));
-			tens /= 10;
+			tens = tens / 10;
 		}
 	}
 

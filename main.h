@@ -17,8 +17,6 @@ typedef struct Ftype
 	int (*f)(va_list);
 } match_id;
 
-typedef struct Ftype match_id;
-
 /* helper and initial functions */
 int _putchar(char c);
 int _printf(const char *format, ...);
@@ -39,7 +37,7 @@ int print_number_ui(unsigned int n);
 int print_number_size_t(size_t n);
 
 /* number conversions functions*/
-size_t convert_decimal_to_octal(size_t num)
+size_t convert_decimal_to_octal(size_t num);
 
 /* escape conversion functions */
 int new_line(va_list arg);
