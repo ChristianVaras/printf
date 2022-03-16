@@ -13,7 +13,7 @@ int select_functions(char c, va_list arguments)
 		{"d", print_int},
 		{"i", print_int},
 		{"u", print_unsigned_int},
-		{"b", print_binary},
+		{"b", print_bin},
 		{"o", print_octal_ui},
 		{"x", print_hex_minus},
 		{"X", print_hex_mayus},
