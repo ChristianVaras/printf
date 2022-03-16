@@ -3,7 +3,6 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
-#include <limits.h>
 
 /**
  * struct Ftype - Define a structre for format
