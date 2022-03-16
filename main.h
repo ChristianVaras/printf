@@ -17,7 +17,7 @@ typedef struct Ftype
 	int (*f)(va_list);
 } match_id;
 
-/* helper and initial functions */
+/* initial functions */
 int _putchar(char c);
 int _printf(const char *format, ...);
 int parser(const char *format, va_list arguments);
@@ -31,15 +31,19 @@ int print_unsigned_int(va_list arg);
 int print_octal_ui(va_list arg);
 int print_hex_minus(va_list arg);
 int print_hex_mayus(va_list arg);
+int print_bin(va_list arg);
+int print_rot13(va_list arg);
 
-/* Auxiliar functions to print different size types of numbers*/
+/* Auxiliar functions */
 int print_number(int n);
 int print_number_ui(unsigned int n);
 int print_number_ul(unsigned long n);
+char *itoa(unsigned int num, char *str, int base);
+int alloc_len(int num, int base);
+int _strlen(const char *s);
 
 /* number conversions functions*/
 unsigned long convert_decimal_to_octal(unsigned long num);
-int print_rot13(va_list arg);
 
 /* escape conversion functions */
 int new_line(va_list arg);
