@@ -10,7 +10,7 @@ int print_hex_minus(va_list arg)
 {
 	size_t x, remainder = 0;
 	int i, j, count = 0;
-	char hex[100];
+	char hex[8];
 
 	x = va_arg(arg, size_t);
 
@@ -55,7 +55,7 @@ int print_hex_mayus(va_list arg)
 {
 	size_t x, remainder = 0;
 	int i, j, count = 0;
-	char hex[100];
+	char hex[8];
 
 	x = va_arg(arg, size_t);
 
