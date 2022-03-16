@@ -39,6 +39,7 @@ int print_number_size_t(size_t n);
 
 /* number conversions functions*/
 size_t convert_decimal_to_octal(size_t num);
+int print_rot13(va_list arg);
 
 /* escape conversion functions */
 int new_line(va_list arg);
