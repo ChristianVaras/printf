@@ -44,13 +44,13 @@ int print_unsigned_int(va_list arg)
 int print_octal_ui(va_list arg)
 {
 	int i;
-	size_t o;
+	unsigned long o;
 
-	o = va_arg(arg, size_t);
+	o = va_arg(arg, unsigned long);
 
 	o = convert_decimal_to_octal(o);
 
-	i = print_number_size_t(o);
+	i = print_number_ul(o);
 
 	return (i);
 }

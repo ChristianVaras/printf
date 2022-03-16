@@ -35,10 +35,10 @@ int print_hex_mayus(va_list arg);
 /* Auxiliar functions to print different size types of numbers*/
 int print_number(int n);
 int print_number_ui(unsigned int n);
-int print_number_size_t(size_t n);
+int print_number_ul(unsigned long n);
 
 /* number conversions functions*/
-size_t convert_decimal_to_octal(size_t num);
+unsigned long convert_decimal_to_octal(unsigned long num);
 int print_rot13(va_list arg);
 
 /* escape conversion functions */

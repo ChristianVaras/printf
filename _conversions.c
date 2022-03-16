@@ -6,10 +6,10 @@
  *
  * Return: octal number converted
  */
-size_t convert_decimal_to_octal(size_t num)
+unsigned long convert_decimal_to_octal(unsigned long num)
 {
-	size_t octal = 0;
-	size_t i = 1;
+	unsigned long octal = 0;
+	unsigned long i = 1;
 
 	while (num != 0)
 	{

@@ -72,14 +72,14 @@ int print_number_ui(unsigned int n)
 }
 
 /**
- * print_number_size_t - prints an size_t number at printf
+ * print_number_ul - prints an size_t number at printf
  * @n: size_t number to print
  *
  * Return: size of the size_t number
  */
-int print_number_size_t(size_t n)
+int print_number_ul(unsigned long n)
 {
-	size_t tens, digit, positive = n;
+	unsigned long tens, digit, positive = n;
 	int size = 0;
 	double t_beg = 1;
 
