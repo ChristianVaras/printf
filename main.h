@@ -41,6 +41,8 @@ int print_number_ul(unsigned long n);
 char *itoa(unsigned int num, char *str, int base);
 int alloc_len(int num, int base);
 int _strlen(const char *s);
+char *rev_string(char *s);
+char *_memcpy(char *dest, char *src, unsigned int n);
 
 /* number conversions functions*/
 unsigned long convert_decimal_to_octal(unsigned long num);
