@@ -17,12 +17,11 @@ typedef struct Ftype
 	int (*f)(va_list);
 } match_id;
 
-typedef struct Ftype match_id;
-
 /* helper and initial functions */
 int _putchar(char c);
 int _printf(const char *format, ...);
-int parse(const char *format, va_list arguments);
+int parser(const char *format, va_list arguments);
+int select_functions(char c, va_list arguments);
 
 /* format conversion functions */
 int print_char(va_list arg);
