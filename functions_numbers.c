@@ -8,13 +8,13 @@
  */
 int print_int(va_list arg)
 {
-        int i, d;
+	int i, d;
 
-        d = va_arg(arg, int);
+	d = va_arg(arg, int);
 
-        i = print_number(d);
+	i = print_number(d);
 
-        return (i);
+	return (i);
 }
 
 /**
@@ -25,14 +25,14 @@ int print_int(va_list arg)
  */
 int print_unsigned_int(va_list arg)
 {
-        int i;
-        unsigned int u;
+	int i;
+	unsigned int u;
 
-        u = va_arg(arg, unsigned int);
+	u = va_arg(arg, unsigned int);
 
-        i = print_number_ui(u);
+	i = print_number_ui(u);
 
-        return (i);
+	return (i);
 }
 
 /**
@@ -43,14 +43,14 @@ int print_unsigned_int(va_list arg)
  */
 int print_octal_ui(va_list arg)
 {
-        int i;
-        size_t o;
+	int i;
+	size_t o;
 
-        o = va_arg(arg, size_t);
+	o = va_arg(arg, size_t);
 
-        o = convert_decimal_to_octal(o);
+	o = convert_decimal_to_octal(o);
 
-        i = print_number_size_t(o);
+	i = print_number_size_t(o);
 
-        return (i);
+	return (i);
 }

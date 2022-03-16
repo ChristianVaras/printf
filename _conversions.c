@@ -8,15 +8,15 @@
  */
 size_t convert_decimal_to_octal(size_t num)
 {
-        size_t octal = 0;
-        size_t i = 1;
+	size_t octal = 0;
+	size_t i = 1;
 
-        while (num != 0)
-        {
-                octal += (num % 8) * i;
-                num = num / 8;
-                i *= 10;
-        }
+	while (num != 0)
+	{
+		octal += (num % 8) * i;
+		num = num / 8;
+		i *= 10;
+	}
 
-        return (octal);
+	return (octal);
 }
