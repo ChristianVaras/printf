@@ -42,5 +42,6 @@ size_t convert_decimal_to_octal(size_t num);
 
 /* escape conversion functions */
 int new_line(va_list arg);
+int print_percent(va_list arg)
 
 #endif

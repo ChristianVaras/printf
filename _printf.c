@@ -114,5 +114,5 @@ int _printf(const char *format, ...)
 
 	va_end(arguments);
 
-	return(final_count)
+	return(final_count);
 }
