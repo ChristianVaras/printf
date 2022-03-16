@@ -29,9 +29,9 @@ int print_string(va_list arg);
 int print_rev(va_list arg);
 int print_int(va_list arg);
 int print_unsigned_int(va_list arg);
-int print_octal_ui(va_list arg);
-int print_hex_minus(va_list arg);
-int print_hex_mayus(va_list arg);
+int print_octal(va_list arg);
+int print_hex(va_list arg);
+int print_HEX(va_list arg);
 int print_bin(va_list arg);
 int print_rot13(va_list arg);
 
@@ -47,10 +47,12 @@ char *_memcpy(char *dest, char *src, unsigned int n);
 
 /* number conversions functions*/
 unsigned long convert_decimal_to_octal(unsigned long num);
-
+int print_HEXADECIMAL(unsigned int n);
+int print_hexadecimal(unsigned int n);
 /* escape conversion functions */
 int new_line(va_list arg);
 int print_percent(va_list arg);
 int print_tab(va_list arg);
+int print_HEXADECIMAL(unsigned int n);
 
 #endif

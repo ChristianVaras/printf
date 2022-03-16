@@ -1,55 +1,129 @@
 #include "main.h"
 
 /**
- * convert_decimal_to_octal - desc
- * @num: ...
- *
- * Return: octal number converted
+ * print_octal - Converts a decimal num passed to the argument to an octal
+ * num
+ * @arg: The num to be converted
+ * Return: c of digit in octal num
  */
-unsigned long convert_decimal_to_octal(unsigned long num)
+int print_octal(va_list arg)
 {
-	unsigned long octal = 0;
-	unsigned long i = 1;
+	unsigned int num, c = 0, index = 0;
+	int arr[100];
 
-	while (num != 0)
+	num = va_arg(arg, int);
+	if (num < 9)
 	{
-		octal += (num % 8) * i;
-		num = num / 8;
-		i *= 10;
+		_putchar(num + '0');
+		c = 1;
 	}
-
-	return (octal);
+	else if (num >= 9)
+	{
+		while (num > 0)
+		{
+			arr[index] = num % 8;
+			num /= 8;
+			index++;
+		}
+	}
+	while (index--)
+	{
+		_putchar(arr[index] + '0');
+		c++;
+	}
+	return (c);
 }
 
 /**
-* print_bin - convert to binary
-* @arg: argument
-* Return: number of elements printed
+ * print_hexadecimal - Converts decimal to uppercase hexadecimal
+ * @n: The number to be converted
+ *
+ * Return: The number of digits printed
+ */
+int print_hexadecimal(unsigned int n)
+{
+	int counter = 0;
+	char hex_digits[] = "0123456789abcdef";
+
+	if (n >= 16)
+		counter += print_hexadecimal(n / 16);
+	counter += _putchar(hex_digits[n % 16]);
+	return (counter);
+}
+
+/**
+ * print_HEXADECIMAL - Converts decimal to uppercase hexadecimal
+ * @n: The number to be converted
+ *
+ * Return: The number of digits printed
+ */
+int print_HEXADECIMAL(unsigned int n)
+{
+	int counter = 0;
+	char hex_digits[] = "0123456789ABCDEF";
+
+	if (n >= 16)
+	{
+		counter += print_HEXADECIMAL(n / 16);
+	}
+	counter += write(1, &hex_digits[n % 16], 1);
+	return (counter);
+}
+
+/**
+ * print_hex - Converts decimal to uppercase hexadecimal
+ * @arg: The number of list to be converted
+ *
+ * Return: The number of digits printed
+ */
+int print_hex(va_list arg)
+{
+	unsigned int n = va_arg(arg, int);
+
+	return (print_hexadecimal(n));
+}
+
+/**
+ * print_HEX - Converts decimal to uppercase hexadecimal
+ * @arg: The number of list to be converted
+ *
+ * Return: The number of digits printed
+ */
+int print_HEX(va_list arg)
+{
+	unsigned int n = va_arg(arg, int);
+
+	return (print_HEXADECIMAL(n));
+}
+/**
+* print_bin - Converts unsigned int argument to binary
+* @arg: The decimal number to be converted
+* Return: Binary number
 */
 int print_bin(va_list arg)
 {
-	char *buffer;
-	unsigned int len, i, a;
+	unsigned int n, a = 0, i = 0;
+	int arr[100];
 
-	a = va_arg(arg, unsigned int);
-	if (a == 0)
+	n = va_arg(arg, int);
+	if (n < 2)
 	{
-		return (_putchar('0'));
+		_putchar(n + '0');
+		a = 1;
 	}
-	len = alloc_len(a, 2);
-	buffer = malloc(sizeof(char) * len + 1);
-	if (buffer == NULL)
+	else if (n >= 2)
 	{
-		return (-1);
+		while (n > 0)
+		{
+			arr[i] = n % 2;
+			n /= 2;
+			i++;
+		}
 	}
-	/* buffer holds the number of digits of the int */
-	buffer = itoa(a, buffer, 2);
-	buffer[len] = '\0';
-	buffer = rev_string(buffer);
-	for (i = 0; buffer[i] != '\0'; i++)
+	while (i--)
 	{
-		_putchar(*(buffer + i));
+		_putchar(arr[i] + '0');
+		a++;
 	}
-	free(buffer);
-	return (i);
+	return (a);
 }
