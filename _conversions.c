@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * print_hex - print a hexadecimal number at printf in lowercase
  * @arg:  the main number passed to the function
@@ -13,11 +14,6 @@ int print_hex(va_list arg)
 
 	x = va_arg(arg, unsigned int);
 
-        if (x == 0)
-        {
-                count += _putchar('0');
-                return (count);
-        }
 	if (x == 0)
 	{
 		count += _putchar('0');
@@ -28,6 +24,7 @@ int print_hex(va_list arg)
 	while (x != 0)
 	{
 		remainder = x % 16;
+
 		if (remainder < 10)
 		{
 			hex[i] = remainder + 48;
@@ -38,12 +35,16 @@ int print_hex(va_list arg)
 			hex[i] = (remainder + 55) + 32;
 			i++;
 		}
+
 		x = x / 16;
 	}
+
 	for (j = i - 1; j >= 0; j--)
 		count += _putchar(hex[j]);
+
 	return (count);
 }
+
 /**
  * print_HEX - print a hexadecimal number at printf in uppercase
  * @arg: the main number passed to the function
@@ -58,11 +59,6 @@ int print_HEX(va_list arg)
 
 	x = va_arg(arg, unsigned int);
 
-        if (x == 0)
-        {
-                count += _putchar('0');
-                return (count);
-        }
 	if (x == 0)
 	{
 		count += _putchar('0');
@@ -73,6 +69,7 @@ int print_HEX(va_list arg)
 	while (x != 0)
 	{
 		remainder = x % 16;
+
 		if (remainder < 10)
 		{
 			hex[i] = remainder + 48;
@@ -83,67 +80,101 @@ int print_HEX(va_list arg)
 			hex[i] = remainder + 55;
 			i++;
 		}
+
 		x = x / 16;
 	}
+
 	for (j = i - 1; j >= 0; j--)
 		count += _putchar(hex[j]);
+
 	return (count);
 }
-
+#include "main.h"
 /**
-* print_octal - convert to ocatle
-* @arg: argument
-* Return: number of elements printed
-*/
+ * convert_decimal_to_octal - desc
+ * @num: ...
+ *
+ * Return: octal number converted
+ */
+unsigned long convert_decimal_to_octal(unsigned long num)
+{
+	unsigned long octal = 0;
+	unsigned long i = 1;
+
+        while (num != 0)
+        {
+                octal += (num % 8) * i;
+                num = num / 8;
+                i *= 10;
+        }
+	while (num != 0)
+	{
+		octal += (num % 8) * i;
+		num = num / 8;
+		i *= 10;
+	}
+
+	return (octal);
+}
+
 int print_octal(va_list arg)
 {
-	char *buffer;
-	int len, i;
-	int a;
+	int i;
+	unsigned long o;
 
-	a = va_arg(arg, int);
-	len = alloc_len(a, 8);
-	buffer = malloc(sizeof(char) * len + 1);
-	/* buffer holds the number of digits of the int */
-	buffer = itoa(a, buffer, 8);
-	buffer[len] = '\0';
-	buffer = rev_string(buffer);
-	for (i = 0; buffer[i] != '\0'; i++)
-	{
-		_putchar(*(buffer + i));
-	}
-	free(buffer);
+	o = va_arg(arg, unsigned long);
+
+	o = convert_decimal_to_octal(o);
+
+	i = print_number_ul(o);
+
 	return (i);
 }
 
 /**
-* print_bin - convert to binary
-* @arg: argument
-* Return: number of elements printed
+* print_bin - Converts unsigned int argument to binary
+* @arg: The decimal number to be converted
+* Return: Binary number
 */
 int print_bin(va_list arg)
 {
 	char *buffer;
 	unsigned int len, i, a;
+	unsigned int n, a = 0, i = 0;
+	int arr[100];
 
 	a = va_arg(arg, unsigned int);
 	if (a == 0)
+	n = va_arg(arg, int);
+	if (n < 2)
 	{
 		return (_putchar('0'));
+		_putchar(n + '0');
+		a = 1;
 	}
 	len = alloc_len(a, 2);
 	buffer = malloc(sizeof(char) * len + 1);
 	if (buffer == NULL)
+	else if (n >= 2)
 	{
 		return (-1);
+		while (n > 0)
+		{
+			arr[i] = n % 2;
+			n /= 2;
+			i++;
+		}
 	}
 	/* buffer holds the number of digits of the int */
 	buffer = itoa(a, buffer, 2);
 	buffer[len] = '\0';
 	buffer = rev_string(buffer);
 	for (i = 0; buffer[i] != '\0'; i++)
+	while (i--)
 	{
 		_putchar(*(buffer + i));
+		_putchar(arr[i] + '0');
+		a++;
 	}
 	free(buffer);
 	return (i);

@@ -42,23 +42,3 @@ int print_unsigned_int(va_list arg)
 
 	return (i);
 }
-
-/**
- * print_octal_ui - print an octal unsigned integer at printf
- * @arg: the main number passed to the function
- *
- * Return: Size of the octal unsigned integer
- */
-int print_octal_ui(va_list arg)
-{
-	int i;
-	unsigned long o;
-
-	o = va_arg(arg, unsigned long);
-
-	o = convert_decimal_to_octal(o);
-
-	i = print_number_ul(o);
-
-	return (i);
-}
