@@ -130,34 +130,26 @@ int print_octal(va_list arg)
 
 	return (i);
 }
+#include "main.h"
 
 /**
 * print_bin - Converts unsigned int argument to binary
-* @arg: The decimal number to be converted
+* @lista: The decimal number to be converted
 * Return: Binary number
 */
 int print_bin(va_list arg)
 {
-	char *buffer;
-	unsigned int len, i, a;
-	unsigned int n, a = 0, i = 0;
+	unsigned int n, count = 0, i = 0;
 	int arr[100];
 
-	a = va_arg(arg, unsigned int);
-	if (a == 0)
-	n = va_arg(arg, int);
+	n = va_arg(lista, int);
 	if (n < 2)
 	{
-		return (_putchar('0'));
 		_putchar(n + '0');
-		a = 1;
+		count = 1;
 	}
-	len = alloc_len(a, 2);
-	buffer = malloc(sizeof(char) * len + 1);
-	if (buffer == NULL)
 	else if (n >= 2)
 	{
-		return (-1);
 		while (n > 0)
 		{
 			arr[i] = n % 2;
@@ -165,17 +157,10 @@ int print_bin(va_list arg)
 			i++;
 		}
 	}
-	/* buffer holds the number of digits of the int */
-	buffer = itoa(a, buffer, 2);
-	buffer[len] = '\0';
-	buffer = rev_string(buffer);
-	for (i = 0; buffer[i] != '\0'; i++)
 	while (i--)
 	{
-		_putchar(*(buffer + i));
 		_putchar(arr[i] + '0');
-		a++;
+		count++;
 	}
-	free(buffer);
-	return (i);
+	return (count);
 }

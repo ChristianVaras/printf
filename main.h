@@ -39,8 +39,6 @@ int print_rot13(va_list arg);
 int print_number(int n);
 int print_number_ui(unsigned int n);
 int print_number_ul(unsigned long n);
-char *itoa(unsigned int num, char *str, int base);
-int alloc_len(int num, int base);
 int _strlen(const char *s);
 char *rev_string(char *s);
 char *_memcpy(char *dest, char *src, unsigned int n);
