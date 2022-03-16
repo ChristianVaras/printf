@@ -26,6 +26,7 @@ int select_functions(char c, va_list arguments);
 /* format conversion functions */
 int print_char(va_list arg);
 int print_string(va_list arg);
+int print_rev(va_list arg);
 int print_int(va_list arg);
 int print_unsigned_int(va_list arg);
 int print_octal_ui(va_list arg);

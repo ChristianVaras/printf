@@ -43,3 +43,25 @@ int print_string(va_list arg)
 	}
 	return (i);
 }
+/**
+* print_rev - function that prints string in reverse
+* @arg: argument of type va_list
+* Return: length of printed string
+*/
+int print_rev(va_list arg)
+{
+	int len;
+	char *str;
+	char *ptr;
+
+	str = va_arg(arg, char *);
+	if (str == NULL)
+		return (-1);
+	ptr = rev_string(str);
+	if (ptr == NULL)
+		return (-1);
+	for (len = 0; ptr[len] != '\0'; len++)
+		_putchar(ptr[len]);
+	free(ptr);
+	return (len);
+}
