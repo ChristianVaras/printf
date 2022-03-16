@@ -41,6 +41,7 @@ int select_functions(char c, va_list arguments)
  * and count how many chars are printed
  * it will also call the function that match the format specifier
  * @format: *pointer to the given format
+ * @arguments: *pointer to arguments
  * Return: the number of printed chars count1
 **/
 int parser(const char *format, va_list arguments)
@@ -63,16 +64,16 @@ int parser(const char *format, va_list arguments)
 				printed_chars = printed_chars + 2;
 				i++;
 
-				if(*(format + i) == '\0')
-                                {
-                                        return (-1);
-                                }
+				if (*(format + i) == '\0')
+				{
+					return (-1);
+				}
 			}
 			else
 			{
 				printed_chars = printed_chars + sum;
 				i++;
-				if(*(format + i) == '\0')
+				if (*(format + i) == '\0')
 				{
 					return (-1);
 				}
@@ -98,7 +99,7 @@ int _printf(const char *format, ...)
 
 	/* if format not exit --> return -1*/
 	/* else call parser */
-	if(!format || arguments == NULL)
+	if (!format || arguments == NULL)
 	{
 		return (-1);
 	}
@@ -114,5 +115,5 @@ int _printf(const char *format, ...)
 
 	va_end(arguments);
 
-	return(final_count);
+	return (final_count);
 }
