@@ -12,8 +12,11 @@ int select_functions(char c, va_list arguments)
 		{"s", print_string},
 		{"d", print_int},
 		{"i", print_int},
+		{"u", print_unsigned_int},
+		{"o", print_octal_ui},
+		{"x", print_hex_minus},
+		{"X", print_hex_mayus},
 		{"%", print_percent},
-		{"n", new_line},
 		{"t", print_tab},
 		{"R", print_rot13},
 		{NULL, NULL}
