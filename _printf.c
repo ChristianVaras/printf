@@ -18,16 +18,19 @@ int select_functions(char c, va_list arguments)
 	};
 	int i = 0;
 	int printed;
+	int (*ptr_frmt)(va_list);
 
 	while (f_list[i].c != NULL)
 	{
 		if (f_list[i].c[0] == c)
 		{
+			ptr_frmt = f_list[i].f;
+			printed = ptr_frmt(arguments);
 			return (printed);
 		}
 		else
 		{
-
+			i++;
 		}
 	}
 	return (-1);
@@ -54,11 +57,16 @@ int parser(const char *format, va_list arguments)
 			sum = select_functions(specifier, arguments);
 			if (sum == -1) /* no match was found */
 			{
+			/* specifier is not defined just print the % and char */
 				_putchar(*(format + i));
+				_putchar(*(format + i + 1));
+				printed_chars = printed_chars + 2;
+				i++;
 			}
 			else
 			{
 				printed_chars = printed_chars + sum;
+				i++;
 			}
 		}
 		else
@@ -70,9 +78,9 @@ int parser(const char *format, va_list arguments)
 	return (printed_chars);
 }
 /**
- * _printf - Simulates the printf function
- * @format: Format to print to the console
- * Return: number of char printed
+ * _printf - function that produces output according to a format.
+ * @format: is a character strings
+ * Return: count of characters in format
  */
 int _printf(const char *format, ...)
 {
