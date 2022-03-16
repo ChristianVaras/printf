@@ -25,3 +25,14 @@ int print_percent(va_list arg)
 	_putchar('%');
 	return (1);
 }
+/**
+* print_tab - function that prints a char
+* @arg: argument of type va_list
+* Return: length of one char
+*/
+int print_tab(va_list arg)
+{
+	(void)arg;
+	_putchar('\t');
+	return (1);
+}

@@ -13,7 +13,9 @@ int select_functions(char c, va_list arguments)
 		{"d", print_int},
 		{"i", print_int},
 		{"%", print_percent},
-
+		{"n", new_line},
+		{"t", print_tab},
+		{"R", print_rot13},
 		{NULL, NULL}
 	};
 	int i = 0;
