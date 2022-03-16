@@ -26,11 +26,19 @@ int print_int(va_list arg)
 int print_unsigned_int(va_list arg)
 {
 	int i;
-	unsigned int u;
+	unsigned int u, tmp;
 
 	u = va_arg(arg, unsigned int);
 
-	i = print_number_ui(u);
+	tmp = u;
+
+	if (tmp < 1)
+	{
+		_putchar('0');
+		return (1);
+	}
+
+	i = print_number_ui(tmp);
 
 	return (i);
 }
