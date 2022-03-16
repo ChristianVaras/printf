@@ -17,6 +17,7 @@ int select_functions(char c, va_list arguments)
 		{"o", print_octal_ui},
 		{"x", print_hex_minus},
 		{"X", print_hex_mayus},
+		{"r", print_rev},
 		{"%", print_percent},
 		{"t", print_tab},
 		{"R", print_rot13},
