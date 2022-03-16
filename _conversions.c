@@ -142,7 +142,7 @@ int print_bin(va_list arg)
 	unsigned int n, count = 0, i = 0;
 	int arr[100];
 
-	n = va_arg(lista, int);
+	n = va_arg(arg, int);
 	if (n < 2)
 	{
 		_putchar(n + '0');
