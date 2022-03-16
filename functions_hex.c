@@ -14,6 +14,12 @@ int print_hex_minus(va_list arg)
 
 	x = va_arg(arg, size_t);
 
+        if (x == 0)
+        {
+                count += _putchar('0');
+                return (count);
+        }
+
 	i = 0;
 	while (x != 0)
 	{
@@ -52,6 +58,12 @@ int print_hex_mayus(va_list arg)
 	char hex[100];
 
 	x = va_arg(arg, size_t);
+
+        if (x == 0)
+        {
+                count += _putchar('0');
+                return (count);
+        }
 
 	i = 0;
 	while (x != 0)
