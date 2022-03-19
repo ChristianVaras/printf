@@ -44,7 +44,7 @@ char *rev_string(char *s);
 char *_memcpy(char *dest, char *src, unsigned int n);
 
 /* number conversions functions*/
-unsigned long convert_decimal_to_octal(unsigned long num);
+unsigned long convert_decimal_to_octal(unsigned int num);
 
 /* escape conversion functions */
 int new_line(va_list arg);
