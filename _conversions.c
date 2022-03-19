@@ -94,10 +94,10 @@ int print_HEX(va_list arg)
  *
  * Return: octal number converted
  */
-unsigned long convert_decimal_to_octal(unsigned int num)
+unsigned long convert_decimal_to_octal(unsigned long num)
 {
-	unsigned int octal = 0;
-	unsigned int i = 1;
+	unsigned long octal = 0;
+	unsigned long i = 1;
 
 	while (num != 0)
 	{
@@ -123,9 +123,9 @@ unsigned long convert_decimal_to_octal(unsigned int num)
 int print_octal(va_list arg)
 {
 	int i;
-	unsigned int o;
+	unsigned long o;
 
-	o = va_arg(arg, unsigned int);
+	o = va_arg(arg, unsigned long);
 
 	o = convert_decimal_to_octal(o);
 
